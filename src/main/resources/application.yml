@@ -1,0 +1,11 @@
+app:
+  name: prosta-services
+  user_cookie: c_user
+
+jwt:
+  header: Authorization
+  expires_in: 60 # 10 minutes
+  secret: queenvictoria
+  cookie: AUTH-TOKEN
+
+

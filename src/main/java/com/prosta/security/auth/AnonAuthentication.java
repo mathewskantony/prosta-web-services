@@ -2,6 +2,7 @@ package com.prosta.security.auth;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 
+
 public class AnonAuthentication extends AbstractAuthenticationToken {
 
     public AnonAuthentication() {
