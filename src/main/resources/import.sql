@@ -1,5 +1,5 @@
-INSERT INTO user (id, username, password, firstname, lastname) VALUES (1, 'user', '123', 'Fan', 'Jin');
-INSERT INTO user (id, username, password, firstname, lastname) VALUES (2, 'admin', '123', 'Jing', 'Xiao');
+INSERT INTO user (id, username, password, firstname, lastname, email, phone_number) VALUES (1, 'user', '123', 'Fan', 'Jin', 'test', '32434234');
+INSERT INTO user (id, username, password, firstname, lastname, email, phone_number) VALUES (2, 'admin', '123', 'Jing', 'Xiao', 'test', '32434234');
 
 INSERT INTO authority (id, name) VALUES (1, 'ROLE_USER');
 INSERT INTO authority (id, name) VALUES (2, 'ROLE_ADMIN');

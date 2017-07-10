@@ -29,6 +29,12 @@ public class User implements UserDetails {
 
     @Column(name = "lastname")
     private String lastname;
+    
+    @Column(name = "email")
+    private String email;
+    
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -112,4 +118,20 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 }

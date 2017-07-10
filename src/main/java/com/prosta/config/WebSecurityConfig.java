@@ -63,6 +63,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().authenticationEntryPoint( restAuthenticationEntryPoint ).and()
                 .addFilterBefore(jwtAuthenticationTokenFilter(), BasicAuthenticationFilter.class)
                 .authorizeRequests()
+                
+               // .antMatchers("/").permitAll().and()
+               // .authorizeRequests().antMatchers("/h2-console/**").permitAll()
+                
                 .anyRequest()
                 .authenticated().and()
                 .formLogin()
@@ -73,6 +77,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/auth/logout"))
                 .logoutSuccessHandler(logoutSuccess)
                 .deleteCookies(TOKEN_COOKIE);
+    	
+
+ // http.csrf().disable();
+//  http.headers().frameOptions().disable();
 
     }
 
