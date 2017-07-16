@@ -64,8 +64,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilterBefore(jwtAuthenticationTokenFilter(), BasicAuthenticationFilter.class)
                 .authorizeRequests()
                 
-               // .antMatchers("/").permitAll().and()
-               // .authorizeRequests().antMatchers("/h2-console/**").permitAll()
+                .antMatchers("/").permitAll().and()
+                .authorizeRequests().antMatchers("/h2-console/**").permitAll()
                 
                 .anyRequest()
                 .authenticated().and()
@@ -79,8 +79,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .deleteCookies(TOKEN_COOKIE);
     	
 
- // http.csrf().disable();
-//  http.headers().frameOptions().disable();
+ http.csrf().disable();
+  http.headers().frameOptions().disable();
 
     }
 

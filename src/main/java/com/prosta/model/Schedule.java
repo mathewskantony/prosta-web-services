@@ -1,5 +1,7 @@
 package com.prosta.model;
 
+import java.sql.Time;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "DEPARTMENT")
-public class Department {
+@Table(name = "SCHEDULE")
+public class Schedule {
 
 	@Id
 	@Column(name = "id")
@@ -21,30 +23,24 @@ public class Department {
 	@Column(name = "name")
 	private String name;
 	
+	@Column(name = "version")
+	private Integer version;
+	
+	@Column(name = "time_from")
+	private Time from;
+	
+	@Column(name = "time_to")
+	private Time to;
+	
+	@Column(name = "payable_hours")
+	private Double payableHours;
+	
+	@Column(name = "weightage")
+	private Double weightage;
+	
+	@Column(name = "allocation")
+	private Integer allocation;
+	
 	@ManyToOne(cascade = CascadeType.ALL)
-	private Employer employer;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Employer getEmployer() {
-		return employer;
-	}
-
-	public void setEmployer(Employer employer) {
-		this.employer = employer;
-	}
+	private Section section;
 }

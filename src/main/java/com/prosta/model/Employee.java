@@ -14,7 +14,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "EMPLOYEE")
@@ -23,33 +22,25 @@ public class Employee {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long employeeId;
+	private Long id;
 
 	@Column(name = "employment_type")
 	private String employmentType;
 
-	@Column(name = "hourly_rate")
-	private int hourlyRate;
-
+	@Column(name = "employment_status")
+	private String status;
+	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private User user;
-
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Department primaryDepartment;
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Employer employer;
+
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(name = "employee_dept",
+    @JoinTable(name = "employee_section",
             joinColumns = @JoinColumn(name = "emp_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "dept_id", referencedColumnName = "id"))
-	private List<Department> departments;
-
-	public Long getEmployeeId() {
-		return employeeId;
-	}
-
-	public void setEmployeeId(Long employeeId) {
-		this.employeeId = employeeId;
-	}
+            inverseJoinColumns = @JoinColumn(name = "section_id", referencedColumnName = "id"))
+	private List<Section> sections;
 
 	public String getEmploymentType() {
 		return employmentType;
@@ -59,13 +50,6 @@ public class Employee {
 		this.employmentType = employmentType;
 	}
 
-	public int getHourlyRate() {
-		return hourlyRate;
-	}
-
-	public void setHourlyRate(int hourlyRate) {
-		this.hourlyRate = hourlyRate;
-	}
 
 	public User getUser() {
 		return user;
@@ -75,19 +59,35 @@ public class Employee {
 		this.user = user;
 	}
 
-	public Department getPrimaryDepartment() {
-		return primaryDepartment;
+	public Long getId() {
+		return id;
 	}
 
-	public void setPrimaryDepartment(Department primaryDepartment) {
-		this.primaryDepartment = primaryDepartment;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public List<Department> getDepartments() {
-		return departments;
+	public Employer getEmployer() {
+		return employer;
 	}
 
-	public void setDepartments(List<Department> departments) {
-		this.departments = departments;
+	public void setEmployer(Employer employer) {
+		this.employer = employer;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public List<Section> getSections() {
+		return sections;
+	}
+
+	public void setSections(List<Section> sections) {
+		this.sections = sections;
 	}
 }

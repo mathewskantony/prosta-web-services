@@ -1,18 +1,15 @@
 package com.prosta.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "DEPARTMENT")
-public class Department {
-
+@Table(name = "EMPLOYER")
+public class Employer {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,9 +18,6 @@ public class Department {
 	@Column(name = "name")
 	private String name;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Employer employer;
-
 	public Long getId() {
 		return id;
 	}
@@ -38,13 +32,5 @@ public class Department {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Employer getEmployer() {
-		return employer;
-	}
-
-	public void setEmployer(Employer employer) {
-		this.employer = employer;
 	}
 }

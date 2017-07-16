@@ -10,8 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "DEPARTMENT")
-public class Department {
+@Table(name = "SECTION")
+public class Section {
 
 	@Id
 	@Column(name = "id")
@@ -20,31 +20,18 @@ public class Department {
 	
 	@Column(name = "name")
 	private String name;
+
+	@Column(name = "duty_roster_frequency")
+	private String dutyRosterFrequency;
+	
+	@Column(name = "duty_roster_trigger")
+	private Integer dutyRosterTrigger;
+	
+	@Column(name = "duty_roster_starts_on")
+	private Integer dutyRosterStartsOn;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	private Employer employer;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Employer getEmployer() {
-		return employer;
-	}
-
-	public void setEmployer(Employer employer) {
-		this.employer = employer;
-	}
+	private Department department;
+	
+	
 }
